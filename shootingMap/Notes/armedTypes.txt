@@ -1,0 +1,106 @@
+gun
+unarmed
+toy weapon
+nail gun
+knife
+shovel
+sword
+undetermined
+vehicle
+hammer
+box cutter
+machete
+hatchet
+metal object
+screwdriver
+guns and explosives
+metal pipe
+sharp object
+lawn mower blade
+flagpole
+cordless drill
+BB gun
+metal hand tool
+blunt object
+metal stick
+crossbow
+metal pole
+Taser
+carjack
+pellet gun
+railroad spikes
+bean-bag gun
+stapler
+meat cleaver
+chain
+beer bottle
+unknown weapon
+contractor's level
+binoculars
+straight edge razor
+brick
+ax
+chain saw
+garden tool
+baseball bat and fireplace poker
+baseball bat
+gun and knife
+hand torch
+pair of scissors
+pole
+pick-axe
+flashlight
+spear
+pipe
+hatchet and gun
+chair
+piece of wood
+baton
+pitchfork
+rock
+glass shard
+motorcycle
+machete and gun
+oar
+pepper spray
+crowbar
+metal rake
+tire iron
+pole and knife
+air conditioner
+baseball bat and bottle
+pen
+fireworks
+chainsaw
+gun and sword
+gun and car
+claimed to be armed
+incendiary device
+bow and arrow
+samurai sword
+gun and vehicle
+vehicle and gun
+wrench
+barstool
+walking stick
+BB gun and vehicle
+Airsoft pistol
+vehicle and machete
+ice pick
+wasp spray
+car, knife and mace
+air pistol
+baseball bat and knife
+gun and machete
+bottle
+knife and vehicle
+microphone
+machete and hammer
+incendiary weapon
+stake
+ax and machete
+hammer and garden tool
+knife, hammer and gasoline can
+flare gun
+Gun
+stone
