@@ -10,9 +10,10 @@ import SwiftUI
 @main
 struct shootingMapApp: App {
     @StateObject private var vm = PeoplesViewModel(peopleArray: shootAPI().fetchAPIParamPerson(flee: "" , armed: "", city: "", state: "", race: "", gender: "", dateRangeLeading: 2023, dateRangeTrailing: 2023)!)
+    @StateObject private var fvm = FilterViewModel(flee: "", armed: "", city: "", state: "", race: "", gender: "",dateRangeLeading: 2023, dateRangeTrailing: 2023)
     var body: some Scene {
         WindowGroup {
-            PeoplesView().environmentObject(vm)
+            PeoplesView().environmentObject(vm).environmentObject(fvm)
         }
     }
 }

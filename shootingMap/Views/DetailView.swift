@@ -110,6 +110,16 @@ extension DetailView {
                         Text("No").font(.title3).fontWeight(.semibold).foregroundColor(.secondary)
                     }
                 }
+                HStack {
+                    Text("Agencies Involved: ").font(.title2).fontWeight(.semibold)
+                }
+                let agenciesList = person.agency_ids!.components(separatedBy: ";")
+                let agencies = shootAPI().fetchAPIParamAgency(id_list: agenciesList)
+                
+                ForEach(agencies!.agencies) {agency in
+                    Text(agency.name!).font(.title3).fontWeight(.semibold).foregroundColor(.secondary)
+                    
+                }
             }
         }.padding()
     }
@@ -117,7 +127,7 @@ extension DetailView {
         Button {
             vm.personDetails = nil
         } label: {
-        Image(systemName: "arrowshape.backward")
+        Image(systemName: "arrowshape.turn.up.backward")
         }
         .font(.headline)
         .padding(16)

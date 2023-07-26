@@ -10,14 +10,15 @@ import MapKit
 
 struct PeoplesView: View {
     @EnvironmentObject private var vm: PeoplesViewModel
+    @EnvironmentObject private var fvm: FilterViewModel
     @State private var mapRegion: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 34.0522, longitude: -118.2437), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
     
-    @State var flee: String = ""
-    @State var armed: String = ""
-    @State var city: String = ""
-    @State var state: String = ""
-    @State var race: String = ""
-    @State var gender: String = ""
+//    @State var flee: String = ""
+//    @State var armed: String = ""
+//    @State var city: String = ""
+//    @State var state: String = ""
+//    @State var race: String = ""
+//    @State var gender: String = ""
     
     var body: some View {
         ZStack {

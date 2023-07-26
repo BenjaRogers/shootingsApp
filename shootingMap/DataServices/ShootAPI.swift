@@ -131,7 +131,7 @@ class shootAPI {
     // Fetch a single person from backend with ID using access token. Return person object
     func fetchAPISinglePerson(id: Int) -> Persons? {
         let apiBaseUrl = Bundle.main.object(forInfoDictionaryKey: "apiPersonUrl") as! String // domain/person url
-        var apiUrl = "\(apiBaseUrl)/\(id)"
+        let apiUrl = "\(apiBaseUrl)/\(id)"
         
         let accessToken = fetchAccessToken()
         let semaphore = DispatchSemaphore(value: 0)

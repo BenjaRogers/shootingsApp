@@ -21,97 +21,77 @@ enum Races: String, CaseIterable, Identifiable {
 }
 
 struct FilterView: View {
-    @State var flee: String = ""
-    @State var armed: String = ""
-    @State var city: String = ""
-    @State var state: String = ""
-    @State var race: String = ""
-    @State var gender: String = ""
-    @State var dateRangeLeading: Int = 2023
-    @State var dateRangeTrailing: Int = 2023
+//    @State var flee: String = ""
+//    @State var armed: String = ""
+//    @State var city: String = ""
+//    @State var state: String = ""
+//    @State var race: String = ""
+//    @State var gender: String = ""
+//    @State var dateRangeLeading: Int = 2023
+//    @State var dateRangeTrailing: Int = 2023
     
     @EnvironmentObject var vm: PeoplesViewModel
+    @EnvironmentObject var fvm: FilterViewModel
     
     var body: some View {
         
         NavigationView {
             Form {
                 Section(header: Text("Location").fontWeight(.bold)) {
-                    Picker(selection: $state, label: Text("State")) {
+                    Picker(selection: $fvm.state, label: Text("State")) {
                         ForEach(States.allCases) { stateCode in
                             Text("\(stateCode.rawValue)").tag(stateCode.rawValue)
                         }
                     }
-                    TextField("City", text: $city)
+                    TextField("City", text: $fvm.city)
                 }
                 
                 Section(header: Text("Circumstance").fontWeight(.bold)) {
-                    Picker(selection: $armed, label: Text("Armed")) {
+                    Picker(selection: $fvm.armed, label: Text("Armed")) {
                         Text("Any").tag("")
                         Text("Armed").tag("armed")
                         Text("Unarmed").tag("unarmed")
                     }.pickerStyle(.segmented)
                     
-                    Picker(selection: $flee, label: Text("Flee").fontWeight(.bold)) {
+                    Picker(selection: $fvm.flee, label: Text("Flee").fontWeight(.bold)) {
                         Text("Any").tag("")
                         Text("Fleeing").tag("fleeing")
                         Text("Not Fleeing").tag("Not+fleeing")
                     }.pickerStyle(.segmented)
                 }
                 Section(header: Text("Date Range").fontWeight(.bold)) {
-                    Picker("From", selection: $dateRangeLeading) {
+                    Picker("From", selection: $fvm.dateRangeLeading) {
                         ForEach(2015...getCurrentYear(), id: \.self) {
                             Text("\(String($0))").tag($0)
                         }
                     }
-//                            Text("2015").tag(2015)
-//                            Text("2016").tag(2016)
-//                            Text("2017").tag(2017)
-//                            Text("2018").tag(2018)
-//                            Text("2019").tag(2019)
-//                            Text("2020").tag(2020)
-//                            Text("2021").tag(2021)
-//                            Text("2022").tag(2022)
-//                            Text("2023").tag(2023)
-//                        }
-                        Picker("To", selection: $dateRangeTrailing) {
-                            ForEach(dateRangeLeading...getCurrentYear(), id: \.self) {
+                    Picker("To", selection: $fvm.dateRangeTrailing) {
+                        ForEach(fvm.dateRangeLeading...getCurrentYear(), id: \.self) {
                                 Text("\(String($0))").tag($0)
                             }
-                            
-//                            Text("2015").tag(2015)
-//                            Text("2016").tag(2016)
-//                            Text("2017").tag(2017)
-//                            Text("2018").tag(2018)
-//                            Text("2019").tag(2019)
-//                            Text("2020").tag(2020)
-//                            Text("2021").tag(2021)
-//                            Text("2022").tag(2022)
-//                            Text("2023").tag(2023)
                     }
                 }
                 
                 Section(header: Text("Demographic")) {
-                    Picker(selection: $race, label: Text("Race")) {
+                    Picker(selection: $fvm.race, label: Text("Race")) {
                         ForEach(Races.allCases) { race in
                             Text("\(race.rawValue.capitalized)").tag(race.rawValue)
                         }
                     }
-                    Picker(selection: $gender, label: Text("Gender")) {
+                    Picker(selection: $fvm.gender, label: Text("Gender")) {
                         Text("Any").tag("")
                         Text("Male").tag("M")
                         Text("Female").tag("F")
                     }.pickerStyle(.segmented)
                 }
-                Button(action: vm.updatePeopleArray(flee: flee, armed: armed, city: city, state: state, race: race, gender: gender, dateRangeLeading: dateRangeLeading, dateRangeTrailing: dateRangeTrailing)){
+                Button(action: vm.updatePeopleArray(flee: fvm.flee, armed: fvm.armed, city: fvm.city, state: fvm.state, race: fvm.race, gender: fvm.gender, dateRangeLeading: fvm.dateRangeLeading, dateRangeTrailing: fvm.dateRangeTrailing)){
                     Text("Apply Filter")
                 }
             }
         }
     
     }
-        
-    }
+}
     
 
 
