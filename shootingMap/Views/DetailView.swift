@@ -19,6 +19,7 @@ struct DetailView: View {
                 personDetails
                 Divider()
                 incidentDetails
+                detailLink
 
             }
         }
@@ -135,6 +136,15 @@ extension DetailView {
         .cornerRadius(10)
         .shadow(radius: 4)
         .padding()
-        
+    }
+    private var detailLink: some View {
+        HStack {
+            if person.name != nil {
+                var urlString = "\(person.name ?? "")+\(person.city ?? "")+\(person.state ?? "")"
+                var linkUrlString = urlString.replacingOccurrences(of: " ", with: "+")
+                Link("Link to more information",
+                     destination: (URL(string: "https://google.com/search?q=\(linkUrlString)")!))
+            }
+        }.padding()
     }
 }
